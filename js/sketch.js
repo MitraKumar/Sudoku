@@ -12,10 +12,12 @@ function main() {
 main();
 
 
-
-// console.log(unsolved[1]);
-
-
-
-// var new_board = solveGrid(unsolved[1]);
-// console.log(new_board);
+document.getElementById("saveUser").addEventListener("click", () => {
+  let username = document.getElementById("username").value;
+  var obj = {
+    user: username,
+    time: 5.01
+  };
+  console.log(JSON.stringify(obj));
+  localStorage.setItem("highestscore", JSON.stringify(obj));
+})
