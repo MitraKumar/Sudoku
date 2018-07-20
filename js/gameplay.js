@@ -5,6 +5,8 @@ var display = document.getElementById("board");
 var timmer = document.getElementById("timmer");
 var t = new Timer();
 
+var score = 0;
+
 // Timmer Function
 function startTimmer() {
 	setInterval(function () {
@@ -27,7 +29,7 @@ function createBoard() {
 
 					if (board[i + l][j] > 0) {
 						cell.setAttribute("value", board[i + l][j]);
-						cell.readOnly = true;
+						cell.setAttribute("disabled", true);
 					}
 
 					cell.setAttribute("type", "text");
@@ -132,13 +134,35 @@ function boxMatch(board, row, col) {
 	return true;
 }
 
-function checkSolved() {
-	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
-		alert("You Win");
-		t.stop();
-	} else {
-		alert("Complete the game");
+function isEmpty(board) {
+	for (let i = 0; i < 9; i++) {
+		for (let j = 0; j < 9; j++) {
+			if (board[i][j] === 0) return true;
+		}
 	}
+	return false;
+}
+
+function checkSolved(elm) {
+	if (isEmpty(board)) {
+		alert("Please Complete the game!!");
+		return;
+	} else {
+		if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
+			let header = document.getElementById('modalHeader');
+			header.innerHTML = "You Win!!";
+			t.stop();
+			elm.target.setAttribute("data-target", "#myModal");
+			elm.target.setAttribute("data-toggle", "modal");
+		} else {
+			let header = document.getElementById('failureHeader');
+			header.innerHTML = "oops!!You Loose..";
+			t.reset();
+			elm.target.setAttribute("data-target", "#failure");
+			elm.target.setAttribute("data-toggle", "modal");
+		}
+	}
+
 }
 
 function reset() {

@@ -27,6 +27,10 @@ class Timer {
         `;
     }
 
+    getSeconds() {
+        return (this.hour * 60 + this.min * 60 + this.sec)
+    }
+
     stop() {
         this.stoped = true;
     }

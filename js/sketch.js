@@ -6,16 +6,34 @@ function main() {
   document.getElementById("submit").addEventListener("click", checkSolved);
 
   // quit function 
-  document.getElementById("quit").addEventListener("click", reset);
+  // document.getElementById("reset").addEventListener("click", reset);
 }
 
-main();
+// Save the highscore for the current user
+document.getElementById("saveUser").addEventListener("click", () => {
+  let username = document.getElementById("username").value;
+  var obj = {
+    user: username,
+    time: t.getSeconds()
+  };
 
+  // get the current
+  let highscore = JSON.parse(localStorage.getItem("highestscore"));
 
+  // check if higscore present or not 
+  if (!highscore) {
+    localStorage.setItem("highestscore", JSON.stringify(obj));
+    return;
+  }
 
-// console.log(unsolved[1]);
-
-
-
-// var new_board = solveGrid(unsolved[1]);
-// console.log(new_board);
+  // if highscore is present
+  // compare the high score and the current score
+  if (highscore.time > obj.time) {
+    // save user to the local storage
+    localStorage.setItem("highestscore", JSON.stringify(obj));
+    alert("You have the highest score");
+  } else {
+    console.log(obj.time);
+    alert("You haven't beat the high score");
+  }
+});
