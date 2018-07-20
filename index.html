@@ -21,8 +21,8 @@
 			<div class="controls col-md-4">
 				<div id="timmer"></div>
 				<div class="btn-class">
-					<button class="btn btn-primary" id="submit" data-toggle="modal" data-target="#myModal">Submit</button>
-					<button class="btn btn-warning" id="reset">Reset</button>
+					<button class="btn btn-primary" id="submit">Submit</button>
+					<!-- <button class="btn btn-warning" id="reset">Reset</button> -->
 				</div>
 			</div>
 			<div class="col-md-8">
@@ -53,6 +53,24 @@
 				</div>
 				<div class="modal-footer ">
 					<button type="button " class="btn btn-primary" id="saveUser" data-dismiss="modal ">Save Your Progress</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="failure" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="container">
+						<div class="jumbotron text-center text-danger">
+							<h1 class="modal-title" id="failureHeader"></h1>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer ">
+					<button type="button " class="btn btn-primary" data-dismiss="modal ">Try again</button>
 				</div>
 			</div>
 		</div>

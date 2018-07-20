@@ -6,7 +6,7 @@ function main() {
   document.getElementById("submit").addEventListener("click", checkSolved);
 
   // quit function 
-  document.getElementById("reset").addEventListener("click", reset);
+  // document.getElementById("reset").addEventListener("click", reset);
 }
 
 // Save the highscore for the current user
