@@ -5,6 +5,8 @@ var display = document.getElementById("board");
 var timmer = document.getElementById("timmer");
 var t = new Timer();
 
+var score = 0;
+
 // Timmer Function
 function startTimmer() {
 	setInterval(function () {
@@ -134,10 +136,11 @@ function boxMatch(board, row, col) {
 
 function checkSolved() {
 	if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
-		alert("You Win");
+		let header = document.getElementById('modalHeader');
+		header.innerHTML = "You Win!!";
 		t.stop();
 	} else {
-		alert("Complete the game");
+		alert("Please finish the game");
 	}
 }
 

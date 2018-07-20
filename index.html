@@ -21,18 +21,16 @@
 			<div class="controls col-md-4">
 				<div id="timmer"></div>
 				<div class="btn-class">
-					<button class="btn btn-primary" id="submit">Submit</button>
-					<button class="btn btn-warning" id="reset">Quit</button>
+					<button class="btn btn-primary" id="submit" data-toggle="modal" data-target="#myModal">Submit</button>
+					<button class="btn btn-warning" id="reset">Reset</button>
 				</div>
 			</div>
 			<div class="col-md-8">
 				<br>
-				<div id="board">
-				</div>
+				<div id="board"></div>
 			</div>
 		</div>
 	</div>
-	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
 	<div id="myModal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -41,7 +39,7 @@
 				<div class="modal-header">
 					<div class="container">
 						<div class="jumbotron text-center text-success">
-							<h1 class="modal-title">You Win!!</h1>
+							<h1 class="modal-title" id="modalHeader"></h1>
 						</div>
 					</div>
 				</div>
@@ -54,8 +52,7 @@
 					</form>
 				</div>
 				<div class="modal-footer ">
-					<button type="button " class="btn btn-primary" id="saveUser">Save Your Progress</button>
-					<button type="button " class="btn btn-default " data-dismiss="modal ">Close</button>
+					<button type="button " class="btn btn-primary" id="saveUser" data-dismiss="modal ">Save Your Progress</button>
 				</div>
 			</div>
 		</div>
@@ -70,6 +67,9 @@
 	<script src="js/timer.js "></script>
 	<script src="js/gameplay.js "></script>
 	<script src="js/sketch.js "></script>
+	<script>
+		main();
+	</script>
 </body>
 
 </html>
