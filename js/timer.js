@@ -1,7 +1,3 @@
-function addZero(number) {
-    return `${parseInt(number/10)}${parseInt(number%10)}`;
-}
-
 class Timer {
 
     constructor() {
@@ -22,7 +18,7 @@ class Timer {
             <h2>Time Consumed:</h2>
             <br/>
             <h3>
-                ${addZero(this.hour)}:${addZero(this.min)}:${addZero(this.sec)}
+                ${Timer.addZero(this.hour)}:${Timer.addZero(this.min)}:${Timer.addZero(this.sec)}
             </h3>
         `;
     }
@@ -47,5 +43,9 @@ class Timer {
                 this.min = 0;
             }
         }
+    }
+
+    static addZero(number) {
+        return `${parseInt(number/10)}${parseInt(number%10)}`;
     }
 }

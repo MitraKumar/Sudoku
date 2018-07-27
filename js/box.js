@@ -1,5 +1,6 @@
 class Box {
-    constructor(values) {
+    constructor(index, values) {
+        this.index = index;
         this.data = values;
     }
 
@@ -10,8 +11,16 @@ class Box {
         // setting attributes to the created div element
         box.setAttribute("class", "box");
 
-        for (let value of this.data) {
-            let cell = new Cell(value);
+        let x = Math.floor(this.index / 3);
+        let y = Math.floor(this.index % 3);
+
+        for (let i = 0; i < this.data.length; i++) {
+
+            let index_i = x * 3 + Math.floor(i / 3);
+            let index_j = y * 3 + Math.floor(i % 3);
+
+
+            let cell = new Cell(index_i, index_j, this.data[i]);
             cell.render(box);
         }
 
