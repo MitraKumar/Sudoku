@@ -80,8 +80,8 @@ class Sudoku {
         }
     }
 
-    static input(i, j, value) {
-        sudoku.data[i][j] = value;
+    input(i, j, value) {
+        this.data[i][j] = value;
     }
 
     static createSudokuMatrix(data) {

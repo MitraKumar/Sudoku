@@ -40,7 +40,7 @@ class Cell {
         if (!parseInt(e.key)) {
             e.target.value = " ";
         } else {
-            Sudoku.input(this.i, this.j, parseInt(e.key));
+            input(this.i, this.j, parseInt(e.key));
         }
     }
 }
