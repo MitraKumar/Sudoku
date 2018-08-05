@@ -21,9 +21,9 @@ class Cell {
         }
 
         // adding a event-listener for key-down event to clear previous input 
-        this.input.addEventListener("keydown", this.play);
+        this.input.addEventListener("keydown", (e) => this.play(e));
         // adding a event-listener for key-up event to check user input
-        this.input.addEventListener("keyup", this.checkinput);
+        this.input.addEventListener("keyup", (e) => this.checkinput(e));
 
         // Appending created input to the output div
         output.appendChild(this.input);
@@ -32,17 +32,15 @@ class Cell {
 
     play(e) {
         if (parseInt(e.key)) {
-            this.value = " ";
+            e.target.value = " ";
         }
     }
 
     checkinput(e) {
         if (!parseInt(e.key)) {
-            this.value = " ";
+            e.target.value = " ";
         } else {
-            let i = Math.floor(this.id / 9);
-            let j = Math.floor(this.id % 9);
-            Sudoku.input(i, j, parseInt(e.key));
+            Sudoku.input(this.i, this.j, parseInt(e.key));
         }
     }
 }

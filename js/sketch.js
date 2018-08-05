@@ -1,4 +1,4 @@
-const data = solved['1'];
+const data = unsolved['1'];
 
 let sudoku = new Sudoku(data);
 sudoku.start();
