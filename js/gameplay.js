@@ -1,5 +1,7 @@
 // Getting data from a local file
-var board = unsolved[1];
+var index = Math.floor(Math.random() * unsolved.length);
+var board = unsolved[index];
+// var board = solved[1];
 
 var display = document.getElementById("board");
 var timmer = document.getElementById("timmer");
@@ -73,10 +75,8 @@ function play(e) {
 		this.value = e.key;
 	} else if (e.key === "Tab" || e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown") {
 		// Do Nothing
-		console.log(e.key + " in else if block");
 	} else {
 		this.value = " ";
-		console.log(e.key + " in else block");
 	}
 }
 

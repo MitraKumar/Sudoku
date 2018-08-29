@@ -23,6 +23,7 @@ document.getElementById("saveUser").addEventListener("click", () => {
   // check if higscore present or not 
   if (!highscore) {
     localStorage.setItem("highestscore", JSON.stringify(obj));
+    alert("You have the highest score");
     return;
   }
 
