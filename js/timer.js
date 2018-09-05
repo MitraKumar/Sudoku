@@ -15,11 +15,10 @@ class Timer {
 
     show() {
         return `
-            <h2>Time Consumed:</h2>
-            <br/>
-            <h3>
+            <h2>Time Consumed: 
+            <span>
                 ${Timer.addZero(this.hour)}:${Timer.addZero(this.min)}:${Timer.addZero(this.sec)}
-            </h3>
+            </span></h2>
         `;
     }
 
@@ -46,6 +45,6 @@ class Timer {
     }
 
     static addZero(number) {
-        return `${parseInt(number/10)}${parseInt(number%10)}`;
+        return `${parseInt(number / 10)}${parseInt(number % 10)}`;
     }
 }
