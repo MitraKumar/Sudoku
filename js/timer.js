@@ -1,5 +1,5 @@
 function addZero(number) {
-    return `${parseInt(number/10)}${parseInt(number%10)}`;
+    return `${parseInt(number / 10)}${parseInt(number % 10)}`;
 }
 
 class Timer {
@@ -19,11 +19,10 @@ class Timer {
 
     show() {
         return `
-            <h2>Time Consumed:</h2>
-            <br/>
-            <h3>
+            <h2>Time Consumed:
+            <span>
                 ${addZero(this.hour)}:${addZero(this.min)}:${addZero(this.sec)}
-            </h3>
+            </span></h2>
         `;
     }
 

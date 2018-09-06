@@ -1,19 +1,33 @@
 #board {
-	margin: auto;
+	margin: 30px auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	max-width: 300px;
+	width: 100%;
+	min-height: 400px;
 }
 
 .box {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	border: 2px solid black;
+	border: 2px solid #e4e4e4;
 }
 
 .field {
-	min-width: 30px;
-	min-height: 30px;
-	border: 1px solid black;
+	width: 100%;
+	height: 100%;
+	border: 1px solid #a0a0a0;
+	text-align: center;
+}
+
+#timmer {
+	margin-top: 30px;
+	text-align: center;
+}
+
+#timmer span {
+	color: #f00;
+}
+
+.btn-class {
 	text-align: center;
 }
