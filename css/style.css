@@ -1,3 +1,12 @@
+body {
+	background-color: #211919;
+    color: #fff;
+}
+
+.navbar {
+	background-color: #4054F7;
+}
+
 #board {
 	margin: 30px auto;
 	display: grid;
@@ -5,17 +14,25 @@
 	width: 100%;
 	min-height: 400px;
 }
+input {
+	background-color: #332928;
+	color: #fff;
+}
+
+input:disabled {
+	background-color: #211919;
+}
 
 .box {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
-	border: 2px solid #e4e4e4;
+	border: 2px solid #737BAA;
 }
 
 .field {
 	width: 100%;
 	height: 100%;
-	border: 1px solid #a0a0a0;
+	border: 1px solid #656982;
 	text-align: center;
 }
 
