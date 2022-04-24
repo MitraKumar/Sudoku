@@ -80,79 +80,17 @@ function play(e) {
 		return;
 	}
 
-	board[row][col] = input;
+	// board[row][col] = input;
+	board = Sudoku.updateBorad(board, row, col, input)
 	this.value = e.key;
 }
 
-function verticalMatch(board, row, col) {
-	var hash = new Array(10);
-
-	for (var i = 0; i < row; i++) {
-		for (var j = 0; j < 10; j++) {
-			hash[j] = 0;
-		}
-
-		for (var j = 0; j < col; j++) {
-			hash[board[j][i]]++;
-		}
-
-		for (var j = 0; j < 10; j++) {
-			if (hash[j] > 1) {
-				return false;
-			}
-		}
-	}
-
-	return true;
-}
-
-function horizontalMatch(board, row, col) {
-	var hash = new Array(10);
-
-	for (var i = 0; i < row; i++) {
-		for (var j = 0; j < 10; j++) {
-			hash[j] = 0;
-		}
-
-		for (var j = 0; j < col; j++) {
-			hash[board[i][j]]++;
-		}
-
-		for (var j = 0; j < 10; j++) {
-			if (hash[j] > 1) {
-				return false;
-			}
-		}
-	}
-
-	return true;
-}
-
-function boxMatch(board, row, col) {
-	for (var i = 0; i < row; i += 3) {
-		for (var j = 0; j < col; j += 3) {
-			if (!horizontalMatch(board, i + 3, j + 3) || !verticalMatch(board, i + 3, j + 3))
-				return false;
-		}
-	}
-	return true;
-}
-
-function isEmpty(board) {
-	for (let i = 0; i < 9; i++) {
-		for (let j = 0; j < 9; j++) {
-			if (board[i][j] === 0) return true;
-		}
-	}
-	return false;
-}
-
 function checkSolved(elm) {
-	if (isEmpty(board)) {
+	if (Sudoku.isEmpty(board)) {
 		alert("Please Complete the game!!");
 		return;
 	} else {
-		if (horizontalMatch(board, 9, 9) && verticalMatch(board, 9, 9) && boxMatch(board, 9, 9)) {
+		if (Sudoku.checkSolved(board)) {
 			let header = document.getElementById('modalHeader');
 			header.innerHTML = "You Win!!";
 			t.stop();
