@@ -34,7 +34,10 @@ function createBoard() {
 						cell.setAttribute("disabled", true);
 					}
 
-					cell.setAttribute("type", "text");
+					cell.setAttribute("type", "number");
+					cell.setAttribute("min", 1);
+					cell.setAttribute("max", 9);
+					cell.setAttribute("maxLength", 2);
 					cell.setAttribute("class", "field");
 					cell.setAttribute("id", parseInt(j) + parseInt((i + l) * 9));
 					cell.addEventListener("keyup", play);
@@ -70,14 +73,15 @@ function play(e) {
 	var row = parseInt(id / 9);
 	var col = parseInt(id % 9);
 
-	if (input) {
-		board[row][col] = input;
-		this.value = e.key;
-	} else if (e.key === "Tab" || e.key === "ArrowRight" || e.key === "ArrowLeft" || e.key === "ArrowUp" || e.key === "ArrowDown") {
-		// Do Nothing
-	} else {
-		this.value = " ";
+	if (input === 0) {
+		// Getting the first character for the input, if zero is pressed.
+		const inputText = this.value;
+		this.value = inputText[0];
+		return;
 	}
+
+	board[row][col] = input;
+	this.value = e.key;
 }
 
 function verticalMatch(board, row, col) {
